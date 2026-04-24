@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeSpaces - Modern Interior Design</title>
+    <!-- Google Fonts for premium typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for hamburger menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <header class="navbar">
+        <div class="logo">LUXE<span>SPACES</span></div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="menu-icon" id="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main class="hero" id="home">
+        <section class="hero-left">
+            <div class="hero-content">
+                <h1 class="vibrant-text">Elevate Your Living.</h1>
+                <h2 class="typewriter"><span id="typewriter-text"></span><span class="cursor">|</span></h2>
+                <p>We transform ordinary rooms into extraordinary experiences. Experience pristine design, vibrant aesthetics, and unparalleled comfort tailored exclusively for you.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Book Consultation</a>
+                    <a href="projects.html" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="hero-right">
+            <div class="image-gallery">
+                <div class="img-wrap main-img">
+                    <img src="assets/hero_image.png" alt="Living Room Concept" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="img-wrap sub-img-1">
+                    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bedroom Aesthetic">
+                </div>
+                <div class="img-wrap sub-img-2">
+                    <img src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Minimalist Dining">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="about-preview" class="about-preview">
+        <div class="about-container">
+            <h3 class="section-subtitle">Our Vision</h3>
+            <h2 class="section-title" id="scroll-typewriter" data-text="We are an interior design studio creating modern and elegant spaces."></h2>
+            <div class="about-actions">
+                <a href="about.html" class="btn-stylish">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-preview" class="services-preview">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
+                <h3 class="section-subtitle">What we offer</h3>
+                <h2 class="vibrant-text" style="font-size: 3rem;">Exquisite Design Services.</h2>
+            </div>
+            
+            <div class="sliding-panels">
+                <!-- Residential Panel -->
+                <div class="service-panel active" style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200');">
+                    <div class="panel-overlay"></div>
+                    <div class="panel-content">
+                        <h3 class="section-subtitle">01</h3>
+                        <h4>Residential Design</h4>
+                        <p>Crafting intimate and personal living spaces that reflect your unique lifestyle and aesthetic.</p>
+                        <a href="services.html" class="btn-stylish" style="border-color: white; color: white;">Explore <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="panel-title-vertical">Residential</div>
+                </div>
+
+                <!-- Commercial Panel -->
+                <div class="service-panel" style="background-image: url('https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1200');">
+                    <div class="panel-overlay"></div>
+                    <div class="panel-content">
+                        <h3 class="section-subtitle">02</h3>
+                        <h4>Commercial Solutions</h4>
+                        <p>Designing dynamic, productive environments for the modern business world.</p>
+                        <a href="services.html" class="btn-stylish" style="border-color: white; color: white;">Explore <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="panel-title-vertical">Commercial</div>
+                </div>
+
+                <!-- 3D Visualization Panel -->
+                <div class="service-panel" style="background-image: url('https://images.pexels.com/photos/3822971/pexels-photo-3822971.jpeg?auto=compress&cs=tinysrgb&w=1200');">
+                    <div class="panel-overlay"></div>
+                    <div class="panel-content">
+                        <h3 class="section-subtitle">03</h3>
+                        <h4>3D Visualization</h4>
+                        <p>Visualizing your future space with photorealistic precision before construction begins.</p>
+                        <a href="services.html" class="btn-stylish" style="border-color: white; color: white;">Explore <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="panel-title-vertical">3D Rendering</div>
+                </div>
+
+                <!-- Renovation Panel -->
+                <div class="service-panel" style="background-image: url('https://images.pexels.com/photos/5849392/pexels-photo-5849392.jpeg?auto=compress&cs=tinysrgb&w=1200');">
+                    <div class="panel-overlay)"></div
+                    <div class="panel-content">
+                        <h3 class="section-subtitle">04</h3>
+                        <h4>Renovation Art</h4>
+                        <p>Giving new life to existing structures with a touch of luxury and expert craftsmanship.</p>
+                        <a href="services.html" class="btn-stylish" style="border-color: white; color: white;">Explore <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="panel-title-vertical">Renovation</div>
+                </div>
+            </div>
+            
+            <div class="view-all-services" style="text-align: center; margin-top: 4rem;">
+                <a href="services.html" class="btn-stylish">View All Services <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
+                <h3 class="section-subtitle">Our Work</h3>
+                <h2 class="vibrant-text" style="font-size: 3rem;">Portfolio Gallery.</h2>
+            </div>
+            
+            <div class="portfolio-carousel-wrapper">
+                <div class="carousel-stage">
+                    <div class="carousel-item" style="--i:1;">
+                        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portfolio 1">
+                        <div class="item-overlay">Livingroom Elegance</div>
+                    </div>
+                    <div class="carousel-item" style="--i:2;">
+                        <img src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portfolio 2">
+                        <div class="item-overlay">Modern Workspace</div>
+                    </div>
+                    <div class="carousel-item" style="--i:3;">
+                        <img src="https://images.pexels.com/photos/3822971/pexels-photo-3822971.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portfolio 3">
+                        <div class="item-overlay">Minimalist Kitchen</div>
+                    </div>
+                    <div class="carousel-item" style="--i:4;">
+                        <img src="https://images.pexels.com/photos/5849392/pexels-photo-5849392.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portfolio 4">
+                        <div class="item-overlay">Luxury Bedroom</div>
+                    </div>
+                    <div class="carousel-item" style="--i:5;">
+                        <img src="https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portfolio 5">
+                        <div class="item-overlay">Custom Furniture</div>
+                    </div>
+                    <div class="carousel-item" style="--i:6;">
+                        <img src="https://images.pexels.com/photos/245208/pexels-photo-245208.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portfolio 6">
+                        <div class="item-overlay">Urban Dining</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 5rem;">
+                <a href="services.html" class="btn-stylish">View Full Portfolio <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section luxe-testimonial-slider">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
+                <h3 class="section-subtitle">Excellence</h3>
+                <h2 class="vibrant-text" style="font-size: 3rem;">What Our Clients Say.</h2>
+            </div>
+            
+            <div class="testimonial-container">
+                <div class="testimonial-track" id="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card luxe-card">
+                        <div class="luxe-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">"LuxeSpaces transformed our apartment into a sanctuary. Their attention to detail and ability to understand our vision was beyond anything we expected."</p>
+                        <div class="testimonial-meta">
+                            <span class="meta-name">Eleanor Vance</span>
+                            <span class="meta-distinction">Manhattan Residence</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card luxe-card">
+                        <div class="luxe-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">"The most professional design studio I have ever worked with. They managed the entire commercial project seamlessly and the results are stunning."</p>
+                        <div class="testimonial-meta">
+                            <span class="meta-name">Marcus Thorne</span>
+                            <span class="meta-distinction">Commercial Portfolio</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card luxe-card">
+                        <div class="luxe-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">"Their golden touch truly exists! Our new office space inspires our team every single day. A true masterpiece of modern architecture."</p>
+                        <div class="testimonial-meta">
+                            <span class="meta-name">Sophia Lorenzi</span>
+                            <span class="meta-distinction">Executive Studio</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="luxe-controls">
+                <button class="luxe-dot active" onclick="jumpToSlide(0)"></button>
+                <button class="luxe-dot" onclick="jumpToSlide(1)"></button>
+                <button class="luxe-dot" onclick="jumpToSlide(2)"></button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">LUXE<span>SPACES</span></div>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-houzz"></i></a>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LuxeSpaces Interior Design Studio. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
