@@ -4,234 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - LuxeSpaces</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .projects-hero {
-            padding: 150px 0 60px;
+        /* Projects Case Study Styles */
+        .case-study-hero {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            background: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2') center/cover no-repeat;
+            margin-top: 80px;
         }
-
-        .category-section {
-            padding: 60px 0;
+        .case-study-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26,26,26,0.4);
         }
-
-        .category-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
+        .case-study-hero-content {
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF;
+            padding: 0 5%;
         }
-
-        .category-header h2 {
+        .case-study-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 2.2rem;
-            color: var(--brand-dark);
-            letter-spacing: 1px;
+            font-size: clamp(3rem, 5vw, 6rem);
+            margin-bottom: 1rem;
+        }
+        .case-study-hero p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Smaller Cards */
-            gap: 2.5rem;
-            padding: 20px 6%;
-            max-width: 1600px;
+        .cs-section {
+            padding: 100px 5%;
+            background: var(--bg-color);
+        }
+        .cs-container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .project-card {
-            position: relative;
-            height: 380px; /* Reduced Height */
-            border-radius: 60px 10px 60px 10px; /* Smaller Organic Curve */
-            overflow: visible;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        .cs-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cs-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+        .cs-intro p {
+            color: var(--grey);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
         }
 
-        .project-img-container {
-            width: 100%;
-            height: 100%;
-            border-radius: inherit;
+        /* Before/After Section */
+        .ba-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 768px) {
+            .ba-wrapper { grid-template-columns: 1fr; }
+        }
+        .ba-card {
+            position: relative;
+            border-radius: 4px;
             overflow: hidden;
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .ba-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .ba-card:hover img {
+            transform: scale(1.05); /* Slight zoom per UI requirements */
+        }
+        .ba-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #FFFFFF;
+            color: var(--text-main);
+            padding: 10px 25px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
         }
 
-        .project-card img {
+        /* Room-Wise Grid */
+        .room-section {
+            margin-bottom: 6rem;
+        }
+        .room-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        .room-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-right: 2rem;
+        }
+        .room-header .line {
+            flex: 1;
+            height: 1px;
+            background: rgba(201, 169, 110, 0.4);
+        }
+
+        .cs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        .cs-grid-item {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .cs-grid-item.large {
+            grid-column: span 2;
+            height: 500px;
+        }
+        @media (max-width: 768px) {
+            .cs-grid-item.large { grid-column: span 1; height: 350px; }
+        }
+        .cs-grid-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-
-        /* Elegant 3px Blinking Gold Corners */
-        .project-card::after {
-            content: '';
+        .cs-grid-item:hover img {
+            transform: scale(1.06); /* Hover Smooth Zoom Effect */
+        }
+        .cs-grid-overlay {
             position: absolute;
-            top: -8px;
-            left: -8px;
-            width: 50px;
-            height: 50px;
-            border-top: 3px solid #D4AF37;
-            border-left: 3px solid #D4AF37;
-            border-radius: 15px 0 0 0;
-            z-index: 1;
-            opacity: 0.8;
-            animation: borderBlink 2.5s infinite alternate;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: -8px;
-            width: 50px;
-            height: 50px;
-            border-bottom: 3px solid #D4AF37;
-            border-right: 3px solid #D4AF37;
-            border-radius: 0 0 15px 0;
-            z-index: 1;
-            opacity: 0.8;
-            animation: borderBlink 2.5s infinite alternate-reverse;
-        }
-
-        @keyframes borderBlink {
-            0% { opacity: 0.3; filter: drop-shadow(0 0 2px #D4AF37); }
-            100% { opacity: 1; filter: drop-shadow(0 0 8px #D4AF37); }
-        }
-
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem 1.5rem;
-            background: linear-gradient(to top, rgba(26,60,52,0.98), transparent);
-            color: white;
+            inset: 0;
+            background: rgba(26,26,26,0.4);
             opacity: 0;
-            z-index: 3;
-            transition: all 0.4s ease;
-            border-radius: 0 0 60px 10px;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
         }
-
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.03);
-        }
-
-        .project-card:hover .project-overlay {
+        .cs-grid-item:hover .cs-grid-overlay {
             opacity: 1;
         }
-
-        .project-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+        .cs-grid-overlay i {
+            color: #FFFFFF;
+            font-size: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .project-grid {
-                grid-template-columns: 1fr 1fr;
-                padding: 20px 4%;
-                gap: 1.5rem;
-            }
-            .project-card { height: 250px; }
-        }
         /* --- Cinematic Lightbox --- */
         .luxe-lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(26, 60, 52, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(26, 26, 26, 0.98);
             z-index: 2000;
             display: flex;
             visibility: hidden;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
             pointer-events: none;
         }
-
         .luxe-lightbox.active {
             visibility: visible;
             opacity: 1;
             pointer-events: all;
         }
-
         .lightbox-content {
             position: relative;
-            max-width: 90%;
-            max-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 90vw;
+            max-height: 90vh;
+            text-align: center;
         }
-
         .lightbox-img {
             max-width: 100%;
-            max-height: 75vh;
-            border-radius: 20px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
-            transform: scale(0.8) translateY(50px);
-            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            max-height: 80vh;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: scale(0.95);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-
         .luxe-lightbox.active .lightbox-img {
-            transform: scale(1) translateY(0);
+            transform: scale(1);
         }
-
-        .lightbox-meta {
-            margin-top: 2rem;
-            text-align: center;
-            color: white;
-            animation: fadeIn 0.8s forwards;
-            animation-delay: 0.3s;
-            opacity: 0;
-        }
-
-        .lightbox-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--pista-green-base);
-            margin-bottom: 0.5rem;
-        }
-
         .lightbox-close {
             position: absolute;
-            top: -60px;
+            top: -40px;
             right: 0;
-            font-size: 2rem;
-            color: white;
+            color: var(--gold);
+            font-size: 2.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
-
         .lightbox-close:hover {
-            color: var(--pista-green-base);
             transform: rotate(90deg);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .lightbox-meta {
+            margin-top: 1.5rem;
+            color: #FFFFFF;
         }
-
-        @media (max-width: 768px) {
-            .lightbox-title { font-size: 1.8rem; }
-            .lightbox-img { max-height: 60vh; }
+        .lightbox-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .lightbox-meta p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <div class="scroll-progress" id="scroll-progress"></div>
     <header class="navbar">
         <div class="logo">LUXE<span>SPACES</span></div>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
-            <a href="projects.html" class="active-link">Projects</a>
+            <a href="projects.html" class="active" style="color:var(--text-main);">Projects</a>
             <a href="contact.html">Contact</a>
         </nav>
         <div class="menu-icon" id="menu-btn">
@@ -240,73 +264,108 @@
     </header>
 
     <main>
-        <section class="projects-hero">
-            <div class="container">
-                <h3 class="section-subtitle reveal-up">The Complete Collection</h3>
-                <h1 class="vibrant-text reveal-up" style="font-size: 3.5rem;">Our Architectural Story.</h1>
+        <!-- Hero Section -->
+        <section class="case-study-hero reveal-up">
+            <div class="case-study-hero-content">
+                <p>Featured Case Study</p>
+                <h1>The Sapphire Residence</h1>
             </div>
         </section>
 
-        <!-- LIVING ROOMS -->
-        <section class="category-section">
-            <div class="category-header reveal-up"><h2>Living Realms</h2></div>
-            <div class="project-grid">
-                <!-- 4 items -->
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Sapphire Lounge</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Obsidian Social</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Ivory Parlour</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Marble Hearth</h2></div></div>
-            </div>
-        </section>
+        <!-- Intro -->
+        <section class="cs-section">
+            <div class="cs-container">
+                <div class="cs-intro reveal-up">
+                    <h2>Transforming a Vision into Reality</h2>
+                    <p>The Sapphire Residence represents the pinnacle of luxury modern living. Tasked with completely gutting and redesigning a dated suburban estate, our team focused on maximizing natural light, introducing premium textures, and establishing a seamless flow between rooms. The result is a timeless living experience.</p>
+                </div>
 
-        <!-- DINING ROOMS (New Section) -->
-        <section class="category-section">
-            <div class="category-header reveal-up"><h2>Grand Dining</h2></div>
-            <div class="project-grid">
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">The Royal Banquet</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/2096907/pexels-photo-2096907.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Minimalist Feast</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/279607/pexels-photo-279607.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Golden Hour Dining</h2></div></div>
-            </div>
-        </section>
+                <!-- Before & After -->
+                <div class="ba-wrapper reveal-up">
+                    <div class="ba-card">
+                        <img src="https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Before">
+                        <div class="ba-label">BEFORE</div>
+                    </div>
+                    <div class="ba-card">
+                        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="After">
+                        <div class="ba-label">AFTER</div>
+                    </div>
+                </div>
 
-        <!-- BEDROOMS -->
-        <section class="category-section">
-            <div class="category-header reveal-up"><h2>Restful Sanctuaries</h2></div>
-            <div class="project-grid">
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Cloud Nine Suite</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/2029722/pexels-photo-2029722.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Serenity Master</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Velvet Night</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">The Parisian Nook</h2></div></div>
-            </div>
-        </section>
+                <!-- Room 1: The Living Area -->
+                <div class="room-section reveal-up">
+                    <div class="room-header">
+                        <h3>The Living Area</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="cs-grid">
+                        <div class="cs-grid-item large" onclick="openLightbox(this.querySelector('img').src, 'Grand Living Room')">
+                            <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Grand Living Room">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Custom Fireplace')">
+                            <img src="https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Custom Fireplace">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Reading Nook')">
+                            <img src="https://images.pexels.com/photos/245208/pexels-photo-245208.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Reading Nook">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- KITCHENS -->
-        <section class="category-section">
-            <div class="category-header reveal-up"><h2>Culinary Art</h2></div>
-            <div class="project-grid">
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Marble Studio</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Emerald Chef</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Bistro Modern</h2></div></div>
-            </div>
-        </section>
+                <!-- Room 2: Culinary Space -->
+                <div class="room-section reveal-up">
+                    <div class="room-header">
+                        <h3>Culinary Space & Dining</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="cs-grid">
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Minimalist Kitchen')">
+                            <img src="https://images.pexels.com/photos/3822971/pexels-photo-3822971.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Minimalist Kitchen">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Marble Island')">
+                            <img src="https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Marble Island">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item large" onclick="openLightbox(this.querySelector('img').src, 'Elegant Dining')">
+                            <img src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Elegant Dining">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Dining Details')">
+                            <img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Dining Details">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Bistro Touch')">
+                            <img src="https://images.pexels.com/photos/279607/pexels-photo-279607.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Bistro Touch">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- OUTDOOR & TERRACES (New Section) -->
-        <section class="category-section">
-            <div class="category-header reveal-up"><h2>Outdoor Living</h2></div>
-            <div class="project-grid">
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Azure Terrace"></div><div class="project-overlay"><h2 class="project-title">Azure Terrace</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Garden Oasis"></div><div class="project-overlay"><h2 class="project-title">The Garden Oasis</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Zen Balcony"></div><div class="project-overlay"><h2 class="project-title">Zen Balcony</h2></div></div>
-            </div>
-        </section>
+                <!-- Room 3: Master Suite -->
+                <div class="room-section reveal-up">
+                    <div class="room-header">
+                        <h3>Master Suite</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="cs-grid">
+                        <div class="cs-grid-item large" onclick="openLightbox(this.querySelector('img').src, 'Master Bedroom')">
+                            <img src="https://images.pexels.com/photos/5849392/pexels-photo-5849392.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Master Bedroom">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Wardrobe')">
+                            <img src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Wardrobe">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="cs-grid-item" onclick="openLightbox(this.querySelector('img').src, 'Ensuite Bathroom')">
+                            <img src="https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2" alt="Ensuite Bathroom">
+                            <div class="cs-grid-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- OFFICES -->
-        <section class="category-section" style="padding-bottom: 150px;">
-            <div class="category-header reveal-up"><h2>Executive Suites</h2></div>
-            <div class="project-grid">
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">The Cloud Office</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">Stellar Workspace</h2></div></div>
-                <div class="project-card reveal-up"><div class="project-img-container"><img src="https://images.pexels.com/photos/245208/pexels-photo-245208.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=2"></div><div class="project-overlay"><h2 class="project-title">The Creative Hub</h2></div></div>
             </div>
         </section>
     </main>
@@ -340,7 +399,7 @@
             <img src="" alt="Project Cinematic View" class="lightbox-img" id="lightbox-img">
             <div class="lightbox-meta">
                 <h2 class="lightbox-title" id="lightbox-title">Project Title</h2>
-                <p>Architectural Showcase | LuxeSpaces</p>
+                <p>Architectural Case Study | LuxeSpaces</p>
             </div>
         </div>
     </div>
